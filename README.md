@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Narmer - Landing Page Manager
 
 Narmer is a modern web application for managing customers and their landing pages. It provides a user-friendly interface for creating, editing, and managing landing pages for different customers.
@@ -102,3 +103,7 @@ narmer/
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details. 
+=======
+# CRM-System-with-Custom-Landing-Pages
+A simple CRM system that allows you to manage customers and create personalized landing pages for each customer.
+>>>>>>> cf447693406c73f610a0a937b12fb872b98b356e
