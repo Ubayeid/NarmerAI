@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Landing Page - Narmer{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-12">
+        <h1 class="display-4">Edit Landing Page</h1>
+        <p class="lead">Modify your landing page details</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('edit_landing_page', page_id=page.id) }}">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Page Title</label>
+                        <input type="text" class="form-control" id="title" name="title" value="{{ page.title }}" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="customer_id" class="form-label">Customer</label>
+                        <select class="form-select" id="customer_id" name="customer_id" required>
+                            <option value="">Select a customer</option>
+                            {% for customer in customers %}
+                            <option value="{{ customer.id }}" {% if customer.id == page.customer_id %}selected{% endif %}>
+                                {{ customer.name }} ({{ customer.company }})
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="template" class="form-label">Template</label>
+                        <select class="form-select" id="template" name="template" required>
+                            <option value="">Select a template</option>
+                            <option value="modern" {% if page.template == 'modern' %}selected{% endif %}>Modern Design</option>
+                            <option value="classic" {% if page.template == 'classic' %}selected{% endif %}>Classic Design</option>
+                            <option value="minimal" {% if page.template == 'minimal' %}selected{% endif %}>Minimal Design</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="content" class="form-label">Page Content</label>
+                        <textarea class="form-control" id="content" name="content" rows="10" required>{{ page.content }}</textarea>
+                        <div class="form-text">You can use HTML tags for formatting.</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Status</label>
+                        <select class="form-select" id="status" name="status" required>
+                            <option value="draft" {% if page.status == 'draft' %}selected{% endif %}>Draft</option>
+                            <option value="active" {% if page.status == 'active' %}selected{% endif %}>Active</option>
+                            <option value="archived" {% if page.status == 'archived' %}selected{% endif %}>Archived</option>
+                        </select>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <a href="{{ url_for('landing_pages') }}" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Back to Landing Pages
+                        </a>
+                        <div>
+                            <a href="{{ url_for('preview_landing_page', page_id=page.id) }}" class="btn btn-info me-2" target="_blank">
+                                <i class="fas fa-eye"></i> Preview
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Save Changes
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-info-circle"></i>
+                    Page Information
+                </h5>
+            </div>
+            <div class="card-body">
+                <p><strong>Created:</strong> {{ page.created_at.strftime('%Y-%m-%d %H:%M') if page.created_at else 'N/A' }}</p>
+                <p><strong>Current Status:</strong> 
+                    <span class="badge {% if page.status == 'active' %}bg-success{% elif page.status == 'draft' %}bg-warning{% else %}bg-secondary{% endif %}">
+                        {{ page.status }}
+                    </span>
+                </p>
+                
+                <div class="alert alert-info mt-3">
+                    <i class="fas fa-lightbulb"></i>
+                    <strong>Tip:</strong> Use the preview button to see how your changes will look before saving.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

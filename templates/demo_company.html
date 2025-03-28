@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechCorp - Innovative Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 6rem 0;
+            margin-bottom: 4rem;
+        }
+        
+        .feature-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            margin-bottom: 2rem;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .cta-section {
+            background-color: #f8f9fa;
+            padding: 4rem 0;
+            margin-top: 4rem;
+        }
+        
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .content-section {
+            padding: 2rem 0;
+        }
+        
+        .dynamic-content {
+            min-height: 100px;
+            border: 1px dashed #dee2e6;
+            border-radius: 5px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">TechCorp</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 mb-4">Welcome to TechCorp</h1>
+            <p class="lead mb-4">Innovative Solutions for Tomorrow's Challenges</p>
+            <a href="#contact" class="btn btn-light btn-lg">Get Started</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="content-section">
+        <div class="container">
+            <h2 class="text-center mb-4">About Us</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="dynamic-content" id="about-content">
+                        <p>TechCorp is a leading technology company dedicated to providing innovative solutions for businesses worldwide. Our team of experts works tirelessly to deliver cutting-edge products and services that drive growth and success.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="dynamic-content" id="mission-content">
+                        <p>Our mission is to empower businesses with technology solutions that transform their operations and drive sustainable growth. We believe in innovation, integrity, and excellence in everything we do.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="content-section bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">Our Services</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card feature-card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-laptop-code fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Web Development</h5>
+                            <div class="dynamic-content" id="web-dev-content">
+                                <p>Custom web solutions tailored to your business needs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-mobile-alt fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Mobile Apps</h5>
+                            <div class="dynamic-content" id="mobile-content">
+                                <p>Native and cross-platform mobile applications.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-cloud fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title">Cloud Solutions</h5>
+                            <div class="dynamic-content" id="cloud-content">
+                                <p>Scalable cloud infrastructure and services.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container text-center">
+            <h2 class="mb-4">Ready to Transform Your Business?</h2>
+            <div class="dynamic-content" id="cta-content">
+                <p>Contact us today to learn how we can help you achieve your goals.</p>
+            </div>
+            <a href="#contact" class="btn btn-primary btn-lg mt-3">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="content-section">
+        <div class="container">
+            <h2 class="text-center mb-4">Contact Us</h2>
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="dynamic-content" id="contact-content">
+                        <p>Get in touch with us to discuss your project requirements.</p>
+                        <p>Email: info@techcorp.com</p>
+                        <p>Phone: (555) 123-4567</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>TechCorp</h5>
+                    <div class="dynamic-content" id="footer-content">
+                        <p>Innovative solutions for tomorrow's challenges.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-white">Home</a></li>
+                        <li><a href="#about" class="text-white">About</a></li>
+                        <li><a href="#services" class="text-white">Services</a></li>
+                        <li><a href="#contact" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Connect With Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2024 TechCorp. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Secure API endpoint for content updates
+        const API_ENDPOINT = '/api/company-content';
+        
+        // Function to fetch and update content
+        async function updateContent() {
+            try {
+                const response = await fetch(API_ENDPOINT, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-Key': '{{ api_key }}' // Server-side injected API key
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Failed to fetch content');
+                }
+                
+                const data = await response.json();
+                
+                // Update content sections
+                Object.keys(data).forEach(section => {
+                    const element = document.getElementById(`${section}-content`);
+                    if (element) {
+                        element.innerHTML = data[section];
+                    }
+                });
+            } catch (error) {
+                console.error('Error updating content:', error);
+            }
+        }
+        
+        // Update content on page load
+        document.addEventListener('DOMContentLoaded', updateContent);
+    </script>
+</body>
+</html> 

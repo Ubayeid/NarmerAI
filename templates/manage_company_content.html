@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block title %}Manage Company Content - Narmer{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-12">
+        <h1 class="display-4">Manage Company Website Content</h1>
+        <p class="lead">Update the content of your company website</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-edit"></i>
+                    Content Sections
+                </h5>
+                <a href="{{ url_for('company_website') }}" class="btn btn-light" target="_blank">
+                    <i class="fas fa-eye"></i>
+                    View Website
+                </a>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Section</th>
+                                <th>Content</th>
+                                <th>Last Updated</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for section in content %}
+                            <tr>
+                                <td>{{ section.section }}</td>
+                                <td>
+                                    <div class="content-preview">
+                                        {{ section.content[:100] }}{% if section.content|length > 100 %}...{% endif %}
+                                    </div>
+                                </td>
+                                <td>{{ section.last_updated.strftime('%Y-%m-%d %H:%M') if section.last_updated else 'Never' }}</td>
+                                <td>
+                                    <button type="button" 
+                                            class="btn btn-sm btn-primary"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#editModal{{ section.section|replace(' ', '') }}">
+                                        <i class="fas fa-edit"></i>
+                                        Edit
+                                    </button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% for section in content %}
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal{{ section.section|replace(' ', '') }}" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit {{ section.section }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form method="POST" action="{{ url_for('update_content') }}">
+                <div class="modal-body">
+                    <input type="hidden" name="section" value="{{ section.section }}">
+                    <div class="mb-3">
+                        <label for="content{{ section.section|replace(' ', '') }}" class="form-label">Content</label>
+                        <textarea class="form-control" 
+                                  id="content{{ section.section|replace(' ', '') }}" 
+                                  name="content" 
+                                  rows="10" 
+                                  required>{{ section.content }}</textarea>
+                        <div class="form-text">You can use HTML tags for formatting.</div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<style>
+.content-preview {
+    max-width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.modal-lg {
+    max-width: 800px;
+}
+
+textarea {
+    font-family: monospace;
+    font-size: 14px;
+}
+</style>
+{% endblock %} 
