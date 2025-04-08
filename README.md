@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Narmer - Landing Page Manager
 
 Narmer is a modern web application for managing customers and their landing pages. It provides a user-friendly interface for creating, editing, and managing landing pages for different customers.
